@@ -14,7 +14,10 @@ Python application which sends email to a list of subscribers at a specified tim
         Mac OS/Linux:
         i) source venv/bin/activate
 5) Install all the dependencies using "pip install -r requirements.txt".
-6) To set up the database, paste "python create_db.py" and run it. The database with two tables, i.e. User and Newsletter, is created.
+6) Setting up the database:
+    6.1) Enter some dummy data in the database in line 38 and 42 of create_db.py file.
+    6.2) Paste "python create_db.py" and run it. 
+    The database with two tables, i.e. User and Newsletter, is created.
 7) Enter your email and password in the main.py file line 10 and 11.
 8) Run "python main.py".
 
@@ -22,6 +25,11 @@ Python application which sends email to a list of subscribers at a specified tim
 
 
 # Future Improvements
-
+1) A landing page can be added for users to subscribe to the mailing list.
+2) Another page to handle all the mails, instead of making changes in the code everytime.
+3) CRUD operations for message contents.
+4) Unsubscribe option for the users.
 
 # References:
+1) https://www.geeksforgeeks.org/how-to-send-automated-email-messages-in-python/
+2) https://pynative.com/python-sqlite/

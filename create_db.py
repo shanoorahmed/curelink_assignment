@@ -26,32 +26,4 @@ def create_table():
             sqliteConnection.close()
             print("The SQLite connection is closed")
 
-def insert_data():
-    try:
-        sqliteConnection = sqlite3.connect('data.db')
-        cursor = sqliteConnection.cursor()
-        print("Successfully Connected to SQLite")
-
-        sqlite_insert_query_1 = """INSERT INTO User
-                            (id, name, email) 
-                            VALUES 
-                            (1,'','')"""
-        sqlite_insert_query_2 = """INSERT INTO Newsletter
-                            (id, topic, message) 
-                            VALUES 
-                            (1,'','')"""
-
-        cursor.execute(sqlite_insert_query_1)
-        cursor.execute(sqlite_insert_query_2)
-        sqliteConnection.commit()
-        cursor.close()
-
-    except sqlite3.Error as error:
-        print("Failed to insert data into sqlite table", error)
-    finally:
-        if sqliteConnection:
-            sqliteConnection.close()
-            print("The SQLite connection is closed")
-
 create_table()
-insert_data()

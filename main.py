@@ -10,6 +10,7 @@ messages = {}
 username = ""
 password = ""
 
+# fetches information from the tables
 def readSqliteTable():
 	try:
 		sqliteConnection = sqlite3.connect('data.db')
@@ -42,12 +43,14 @@ def readSqliteTable():
 
 readSqliteTable()
 
+# adds subject and body of the message
 def message(subject="", text=""):
 	msg = MIMEMultipart()
 	msg['Subject'] = subject  
 	msg.attach(MIMEText(text))
 	return msg
 
+# sends mail by changing the message content according to type of email
 def mail(title):
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.ehlo()
@@ -61,6 +64,7 @@ def mail(title):
 	smtp.sendmail(from_addr=username, to_addrs=recipients, msg=msg.as_string())	
 	smtp.quit()
 
+# different functions for different topics
 def dietMail():	
 	mail("diet")
 
@@ -70,6 +74,7 @@ def workoutMail():
 def yogaMail():
 	mail("yoga")
 
+# scheduling different days for different emails
 schedule.every().monday.at("10:00").do(dietMail)
 schedule.every().wednesday.at("10:00").do(workoutMail)
 schedule.every().friday.at("10:00").do(yogaMail)
